@@ -1,0 +1,42 @@
+﻿@model WhatsUp2.Models.RegistreerModel
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Register</h2>
+@Html.ValidationSummary()
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(m => m.Name)
+    <br />
+    @Html.TextBoxFor(m => m.Name)
+    @Html.ValidationMessageFor(m => m.Name)
+    <br /><br />
+
+    @Html.LabelFor(m => m.EmailAddress)
+    <br />
+    @Html.TextBoxFor(m => m.EmailAddress)
+    @Html.ValidationMessageFor(m => m.EmailAddress)
+    <br /><br />
+
+    @Html.LabelFor(m => m.PhoneNumber)
+    <br />
+    @Html.TextBoxFor(m => m.PhoneNumber)
+    @Html.ValidationMessageFor(m => m.PhoneNumber)
+    <br /><br />
+
+    @Html.LabelFor(m => m.Password)
+    <br />
+    @Html.PasswordFor(m => m.Password)
+    @Html.ValidationMessageFor(m => m.Password)
+    <br /><br />
+
+    @Html.LabelFor(m => m.ConfirmPassword)
+    <br />
+    @Html.PasswordFor(m => m.ConfirmPassword)
+    @Html.ValidationMessageFor(m => m.ConfirmPassword)
+    <br /><br />
+    <input type="submit" value="Register" />
+}

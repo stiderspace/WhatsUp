@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhatsUp2", "WhatsUp2\WhatsUp2.csproj", "{613A3865-5C13-4B96-A087-1587A0182774}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhatsUp2.Tests", "WhatsUp2.Tests\WhatsUp2.Tests.csproj", "{C0C88C50-850F-41D9-AD38-A076FD960E41}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{613A3865-5C13-4B96-A087-1587A0182774}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{613A3865-5C13-4B96-A087-1587A0182774}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{613A3865-5C13-4B96-A087-1587A0182774}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{613A3865-5C13-4B96-A087-1587A0182774}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0C88C50-850F-41D9-AD38-A076FD960E41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0C88C50-850F-41D9-AD38-A076FD960E41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0C88C50-850F-41D9-AD38-A076FD960E41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0C88C50-850F-41D9-AD38-A076FD960E41}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

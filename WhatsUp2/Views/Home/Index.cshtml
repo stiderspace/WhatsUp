@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>WhatsUp</h1>
+    <p class="lead">Chat with your friends, make a group chat or see your contacts.</p>
+    <p> But first, @Html.ActionLink("login", "Login", "Account") or @Html.ActionLink("register", "Register", "Account")</p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Chats</h2>
+        <p>
+            Start a chat!
+        </p>
+        <p><a class="btn btn-default" href="http://localhost:47776/chat/index">Chat &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Group chats</h2>
+        <p>Start a group chat!</p>
+        <p><a class="btn btn-default" href="http://localhost:47776/group/index">Group chat &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Contacts</h2>
+        <p>See your contacts</p>
+        <p><a class="btn btn-default" href="http://localhost:47776/contacts/index">Contacts &raquo;</a></p>
+    </div>
+</div>

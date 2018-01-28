@@ -13,49 +13,49 @@ namespace WhatsUp2.Repository
     {
         private WhatsUp2Context db = new WhatsUp2Context();
 
-        public int ChatId
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public IEnumerable<Contact> Chatmembers
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public string ChatName
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
         public void AddMember(Contact contact)
         {
-     //       db.Groups.Add(contact);
+            //       db.Groups.Add(contact);
             db.SaveChanges();
+        }
+
+        public void CreateChat(Chat chat)
+        {
+            db.Chats.Add(chat);
+            db.SaveChanges();
+        }
+
+
+        public IEnumerable<Contact> GetAllChats(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Account GetAccountById(int id)
+        {
+            Account account = db.Accounts.Where(A => A.Id == id).FirstOrDefault();
+            return account;
+        }
+
+        public void addMessage(Message message)
+        {
+            db.Messages.Add(message);
+            db.SaveChanges();
+        }
+
+        public Chat getChatById(int chatId)
+        {
+            Chat chat = db.Chats.Find(chatId);
+            return chat;
+        }
+
+        public int CreatePrivateChat(Chat chat)
+        {
+            db.Chats.Add(chat);
+            db.SaveChanges();
+            int chatId = db.Chats.Where(C => C.ChatName == chat.ChatName).FirstOrDefault().ChatId;
+
+            return chatId;
         }
     }
 }

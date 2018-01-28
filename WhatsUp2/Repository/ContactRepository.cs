@@ -29,13 +29,13 @@ namespace WhatsUp2.Repository
 
         public IEnumerable<Contact> GetAllContacts(int accountid)
         {
-            IEnumerable<Contact> myContacts = db.Contacts.Where(c => c.OwnerAccountId == accountid);
+            IEnumerable<Contact> myContacts = db.Contacts.Include("ContactAccount").Where(c => c.OwnerAccountId == accountid);
             return myContacts;
         }
 
         public Contact GetContactBy(int contactId)
         {
-            Contact contact = db.Contacts.Find(contactId);
+            Contact contact = db.Contacts.Include("Chat").Where(C => C.Id == contactId).SingleOrDefault();
             return contact;
         }
 

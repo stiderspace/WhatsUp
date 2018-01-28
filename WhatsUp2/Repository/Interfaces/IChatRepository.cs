@@ -11,10 +11,12 @@ namespace WhatsUp2.Models
 {
     public interface IChatRepository
     {
-        int ChatId { get; set; }
-        string ChatName { get; set; }
-        IEnumerable<Contact> Chatmembers { get; set; }
+        void CreateChat(Chat chat);
         void AddMember(Contact contact);
         IEnumerable<Contact> GetAllChats(int id);
+        Account GetAccountById(int id);
+        void addMessage(Message message);
+        Chat getChatById(int chatId);
+        int CreatePrivateChat(Chat chat);
     }
 }

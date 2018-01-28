@@ -157,12 +157,17 @@
     <Compile Include="Migrations\201801261336235_allownull.Designer.cs">
       <DependentUpon>201801261336235_allownull.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801281923265_single_chat_update.cs" />
+    <Compile Include="Migrations\201801281923265_single_chat_update.Designer.cs">
+      <DependentUpon>201801281923265_single_chat_update.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Chat.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\Message.cs" />
+    <Compile Include="Models\NewChatModel.cs" />
     <Compile Include="Models\RegistreerModel.cs" />
     <Compile Include="Repository\ChatRepository.cs" />
     <Compile Include="Repository\Interfaces\IChatRepository.cs" />
@@ -221,8 +226,9 @@
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Account\Logoff.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Chats\Index.cshtml" />
-    <Content Include="Views\Chats\Create.cshtml" />
+    <Content Include="Views\Chat\Index.cshtml" />
+    <Content Include="Views\Chat\Create.cshtml" />
+    <Content Include="Views\Chat\Chat.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -250,6 +256,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801261336235_allownull.resx">
       <DependentUpon>201801261336235_allownull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801281923265_single_chat_update.resx">
+      <DependentUpon>201801281923265_single_chat_update.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

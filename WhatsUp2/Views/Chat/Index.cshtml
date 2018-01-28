@@ -1,0 +1,27 @@
+﻿@model IEnumerable<WhatsUp2.Models.Chat>
+@{
+    ViewBag.Title = "Chats";
+}
+
+    @Html.ActionLink("Create New Chat", "Create")
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ChatName)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ChatName)
+                </td>
+                <td>
+                    @Html.ActionLink("Chat", "Chat", new { chatid = item.ChatId, name = item.ChatName }) |
+                    @Html.ActionLink("Leave", "Leave", new { chatid = item.ChatId})
+                </td>
+            </tr>
+        }
+    </table>

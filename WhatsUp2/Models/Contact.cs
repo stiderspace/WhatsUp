@@ -16,6 +16,10 @@ namespace WhatsUp2.Models
         public string Nickname { get; set; }
         public string PhoneNumber { get; set; }
 
+
+        public int? chatId { get; set; }
+        public virtual Chat chat { get; set; } // navigation property
+
         public int OwnerAccountId { get; set; }
         public virtual Account OwnerAccount { get; set; } // navigation property
 

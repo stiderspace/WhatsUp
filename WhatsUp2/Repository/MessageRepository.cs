@@ -15,28 +15,10 @@ namespace WhatsUp2.Repository
 
         public IEnumerable<Chat> Chats { get { return db.Chats; } }
 
-        public Contact GetContactBy(int contactId)
+        public IEnumerable<Message> GetMessagesFromChat(int ChatId)
         {
-            Contact contact = db.Contacts.Find(contactId);
-            return contact;
-        }
-
-        public void AddContact(Contact contact)
-        {
-            db.Contacts.Add(contact);
-            db.SaveChanges();
-        }
-
-        public void DeleteContact(Contact contact)
-        {
-            db.Contacts.Remove(contact);
-            db.SaveChanges();
-        }
-
-        public void UpdateContact(Contact contact)
-        {
-            db.Entry(contact).State = System.Data.Entity.EntityState.Modified;
-            db.SaveChanges();
+            IEnumerable<Message> messages = db.Messages.Where(M => M.ChatId == ChatId).ToList();
+            return messages;
         }
     }
 }

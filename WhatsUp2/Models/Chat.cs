@@ -13,6 +13,10 @@ namespace WhatsUp2.Models
     [Table("Chat")]
     public class Chat
     {
+        public Chat()
+        {
+            Participants = new List<Account>();
+        }
         public int ChatId { get; set; }
         public string ChatName { get; set; }
         public string ChatDesc { get; set; }

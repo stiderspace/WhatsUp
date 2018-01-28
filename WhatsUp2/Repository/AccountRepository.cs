@@ -15,7 +15,7 @@ namespace WhatsUp2.Repository
    
         public Account GetAccount(string emailAddress, string password)
         {
-            Account account = db.Accounts.Include("Chats").SingleOrDefault(u => u.EmailAddress == emailAddress && u.Password == password);
+            Account account = db.Accounts.Include("Chats").FirstOrDefault(u => u.EmailAddress == emailAddress && u.Password == password);
             return account;
         }
         

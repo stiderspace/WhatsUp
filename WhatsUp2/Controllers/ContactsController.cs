@@ -15,6 +15,7 @@ namespace WhatsUp2.Controllers
     public class ContactsController : Controller
     {
         private IContactRepository contactRepository = new ContactRepository();
+        private IChatRepository chatRepository = new ChatRepository();
 
         [Authorize]
         public ActionResult Index()
@@ -120,6 +121,25 @@ namespace WhatsUp2.Controllers
             Contact contact = contactRepository.GetContactBy((int)id);
             contactRepository.DeleteContact(contact);
             return RedirectToAction("Index");
+        }
+
+        [Authorize]
+        public ActionResult OpenChat(int? id)
+        {
+            Contact contact = contactRepository.GetContactBy((int)id);
+            if (contact.chat == null)
+            {
+                Chat chat = new Chat();
+                chat.ChatName = contact.ContactAccount.Name + contact.OwnerAccount.Name;
+                chat.ChatDesc = "private chat";
+                chat.Participants.Add(chatRepository.GetAccountById(contact.OwnerAccountId));
+                chat.Participants.Add(chatRepository.GetAccountById((int)contact.ContactAccountId));
+                int privateChatId = chatRepository.CreatePrivateChat(chat);
+
+                return RedirectToAction("Chat", "Chat", chatRepository.getChatById(privateChatId));
+            }
+            return RedirectToAction("Chat", "Chat", chatRepository.getChatById((int)contact.chatId));
+
         }
     }
 }

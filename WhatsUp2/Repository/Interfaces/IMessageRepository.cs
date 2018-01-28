@@ -11,10 +11,6 @@ namespace WhatsUp2.Repository
 {
     interface IMessageRepository
     {
-        IEnumerable<Chat> Chats { get; }
-        Contact GetContactBy(int contactId);
-        void AddContact(Contact contact);
-        void DeleteContact(Contact contact);
-        void UpdateContact(Contact contact);
+        IEnumerable<Message> GetMessagesFromChat(int ChatId);
     }
 }

@@ -1,0 +1,50 @@
+﻿@model WhatsUp2.Models.Message
+
+
+@{
+    ViewBag.Title = "Chat" + ViewBag.name;
+
+}
+
+<h2>chat </h2>
+@Model.ChatId
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Sender.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SendDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Messages)
+        </th>
+    </tr>
+
+    @foreach (var item in (IEnumerable<WhatsUp2.Models.Message>)ViewBag.messages)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sender.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SendDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Messages)
+            </td>
+        </tr>
+    }
+</table>
+
+<div>
+    @using (Html.BeginForm())
+    {
+        @Html.LabelFor(m => m.Messages)
+        @Html.TextBoxFor(m => m.Messages)
+        @Html.ValidationMessageFor(m => m.Messages)
+
+        <input type="submit" value="Send" class="btn btn-default" />
+    }
+
+</div>

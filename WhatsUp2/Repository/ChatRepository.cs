@@ -43,6 +43,11 @@ namespace WhatsUp2.Repository
             db.SaveChanges();
         }
 
+        public void addMember(Chat chat)
+        {
+
+        }
+
         public Chat getChatById(int chatId)
         {
             Chat chat = db.Chats.Find(chatId);

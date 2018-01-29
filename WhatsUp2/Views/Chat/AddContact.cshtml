@@ -1,0 +1,38 @@
+﻿@model WhatsUp2.Models.Chat
+@{
+    ViewBag.Title = "AddContact";
+    IEnumerable<WhatsUp2.Models.Contact> contacts = ViewBag.Contacts;
+}
+
+<h2>AddContact</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Contact</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label class="control-label col-md-2">Contacts</label>
+            <div class="col-md-10">
+                @{
+                    foreach (var item in contacts)
+                    {
+                        @Html.RadioButtonFor(rbtn => rbtn.participant, item.ContactAccount.Id)
+                        @item.Nickname
+                    }
+                }
+                @Html.ValidationMessageFor(model => model.participant)
+            </div>
+
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="AddContact" class="btn btn-default" />
+        </div>
+    </div>
+
+}
+

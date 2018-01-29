@@ -18,12 +18,13 @@
             @Html.DisplayNameFor(model => model.PhoneNumber)
         </th>
         <th></th>
+        <th>Nickname</th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Nickname)
+            @Html.DisplayFor(modelItem => item.ContactAccount.Name)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.PhoneNumber)
@@ -34,6 +35,7 @@
             @Html.ActionLink("Delete", "Delete", new { id = item.Id }) |
             @Html.ActionLink("Open Chat", "OpenChat", new { id = item.Id }) |
         </td>
+        <th>@item.Nickname</th>
     </tr>
 }
 </table>

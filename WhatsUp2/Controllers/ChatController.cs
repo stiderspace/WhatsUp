@@ -52,6 +52,7 @@ namespace WhatsUp2.Controllers
             }
             return View(newChatModel);
         }
+
         [Authorize]
         public ActionResult Chat(int? chatId, String name)
         {
@@ -62,12 +63,12 @@ namespace WhatsUp2.Controllers
             message.ChatId = (int)chatId;
             return View(message);
         }
+            
         [Authorize]
         public ActionResult Leave()
         {
             return RedirectToAction("Index");
         }
-
 
         [Authorize]
         [HttpPost]
@@ -85,6 +86,11 @@ namespace WhatsUp2.Controllers
             return RedirectToAction("Chat", new { chatid = message.ChatId, name = chatRepository.getChatById(message.ChatId) });
         }
 
-
+        public ActionResult AddContact()
+        {
+            IEnumerable<Contact> contacts = contactRepository.GetAllContacts(((Account)Session["loggedin_account"]).Id);
+            ViewBag.Contacts = contacts;
+            return View();
+        }
     }
 }
